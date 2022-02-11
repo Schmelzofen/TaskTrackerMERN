@@ -10,7 +10,7 @@ const { getTasksService } = require("./src/service/getTasksService")
 app.use(express.static(path.resolve(__dirname, "./client/build/")));
 app.use(cors())
 app.use(express.json())
-
+console.log(__dirname + "/client/build")
 app.get("/api/todos/all", (req, res) => {
     getTasksService()
         .then((todos) => {
