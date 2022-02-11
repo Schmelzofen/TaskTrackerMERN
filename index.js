@@ -7,7 +7,7 @@ const path = require("path")
 const { addTaskService } = require("./src/service/addTaskService")
 const { deleteTaskService } = require("./src/service/deleteTaskService")
 const { getTasksService } = require("./src/service/getTasksService")
-app.use(express.static(path.resolve(__dirname, "../frontend/build")));
+app.use(express.static(path.resolve(__dirname, "./client/build/")));
 app.use(cors())
 app.use(express.json())
 
@@ -48,7 +48,7 @@ app.post("/api/todos/post", (req, res) => {
 })
 
 app.get("*", function (request, response) {
-    response.sendFile(path.resolve(__dirname, "../frontend/build/", "index.html"));
+    response.sendFile(path.resolve(__dirname, "./client/build/", "index.html"));
 });
 
 app.use((_, res) => {
